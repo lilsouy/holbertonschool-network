@@ -1,1 +1,100 @@
+# What Happens When You Type `https://www.google.com` in Your Browser and Press Enter?
 
+Every time you visit a website, many processes happen behind the scenes in just a few milliseconds. This article explains what happens from the moment you press **Enter** until the Google homepage appears.
+
+## 1. DNS Request
+
+The browser first needs to find the IP address of **www.google.com** because computers communicate using IP addresses rather than domain names.
+
+The browser checks:
+- Browser cache
+- Operating system cache
+- Local DNS resolver
+- ISP DNS server
+
+If the IP address is not found, the DNS server queries other DNS servers until it finds Google's IP address and returns it to the browser.
+
+## 2. TCP/IP Connection
+
+Once the IP address is known, the browser establishes a connection using the TCP/IP protocol suite.
+
+TCP uses a **three-way handshake**:
+
+1. SYN
+2. SYN-ACK
+3. ACK
+
+After the handshake, the client and server can communicate reliably.
+
+## 3. Firewall
+
+Before the request reaches Google's servers, it passes through one or more firewalls.
+
+A firewall filters incoming and outgoing traffic based on security rules. It blocks malicious requests while allowing legitimate traffic to pass.
+
+## 4. HTTPS/SSL
+
+Since the URL begins with `https://`, the browser establishes a secure connection using TLS (formerly SSL).
+
+During the TLS handshake:
+
+- The server sends its SSL/TLS certificate.
+- The browser verifies the certificate.
+- Both sides generate encryption keys.
+
+After this process, all communication is encrypted.
+
+## 5. Load Balancer
+
+Google handles billions of requests every day.
+
+A load balancer distributes incoming requests across multiple servers to improve:
+
+- Performance
+- Availability
+- Scalability
+- Reliability
+
+If one server fails, the load balancer redirects traffic to another server.
+
+## 6. Web Server
+
+The request reaches a web server such as Nginx or Apache.
+
+The web server:
+
+- Receives the HTTP request.
+- Serves static content.
+- Forwards dynamic requests to the application server.
+
+## 7. Application Server
+
+The application server processes the request by executing the application's business logic.
+
+If additional data is needed, it communicates with the database.
+
+## 8. Database
+
+The database stores application data such as user information, search indexes, and settings.
+
+The application server retrieves or updates the required information before generating a response.
+
+## 9. Returning the Response
+
+The application server sends the generated response to the web server.
+
+The web server sends the response back to the browser over the encrypted HTTPS connection.
+
+The browser then:
+
+- Parses the HTML.
+- Downloads CSS and JavaScript files.
+- Builds the DOM.
+- Executes JavaScript.
+- Renders the webpage.
+
+Within a fraction of a second, the Google homepage appears.
+
+## Conclusion
+
+Typing `https://www.google.com` and pressing Enter triggers many processes behind the scenes. DNS resolves the domain name, TCP/IP establishes the connection, firewalls secure the network, HTTPS encrypts communication, load balancers distribute traffic, web servers receive requests, application servers process them, databases provide data, and finally the browser renders the webpage.
